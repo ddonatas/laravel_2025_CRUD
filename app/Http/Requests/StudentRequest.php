@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+//jei naudotume asm kodo valildavima
+//use App\Rules\ValidLithuanianPersonalCode;  
+
 class StudentRequest extends FormRequest
 {
     /**
@@ -25,6 +28,8 @@ class StudentRequest extends FormRequest
             'address' => 'required|string',
             'phone' => 'required|string|min:7|max:20',
             'city_id' => 'required|exists:cities,id',
+            //jei naudotume asm kodo valildavima
+            //   'personal_code' => ['required', new ValidLithuanianPersonalCode],
         ];
     }
 
