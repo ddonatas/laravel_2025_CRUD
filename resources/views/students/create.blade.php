@@ -3,7 +3,15 @@
 @section('content')
 <div class="container mt-4">
     <h2>Pridėti naują studentą</h2>
-    
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+ @endif
     <form action="{{ route('students.store') }}" method="POST">
         @csrf
 
@@ -37,7 +45,8 @@
         </div>
 
         <button type="submit" class="btn btn-success">Išsaugoti</button>
-    </form>a
+    </form>
+      
 </div>
 @endsection
 

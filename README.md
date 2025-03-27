@@ -1,8 +1,11 @@
 <h1>CRUD pavyzdys v2025-03-26</h1>
 <b>Aprašymas: </b>
 Šis projektas yra Laravel  pagrindu sukurtas CRUD (Create, Read, Update, Delete) pavyzdys su studentų ir miestų duomenų valdymu.
-2025-03-26 Papildomai aktyvuotas Soft delete trynimas.
-    Įdiegus sudaromos ir užpildomos dvi lentelės students (su faker 1000 įrašų) ir cities  (su 5 LT miestais)
+<br>2025-03-26 Papildomai aktyvuotas Soft delete trynimas.
+<br>2025-03-26 Įdiegtas Breeze, kad studentų valdymą atlika tik prisijungę vartotojai, o list (index) gali matyti visi  be  prisijungimo
+<br>2025-03-27 Įdiegta validacija per FormRequest klasę.
+
+<br> Įdiegus sudaromos ir užpildomos dvi lentelės students (su faker 1000 įrašų) ir cities  (su 5 LT miestais)
 
 <b>Diegimas: </b>
 norint įdiegti projektą reikia atsisiųsti arba  naudoti git (https://git-scm.com/) per CMD:

@@ -9,7 +9,15 @@
         <form action="{{ route('students.update', $student->id) }}" method="POST">
     @csrf
     @method('PUT')
-
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="mb-3">
         <label for="name" class="form-label">Vardas</label>
         <input type="text" name="name" class="form-control" value="{{ old('name', $student->name) }}" required>
