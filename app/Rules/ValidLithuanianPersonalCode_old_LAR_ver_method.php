@@ -1,29 +1,32 @@
 <?php
 namespace App\Rules;
-//PASTABA
-//nuo Laravel 9 versijos naudojama  ValidationRule vietoje Rule  ziureti kita byla ValidLithuanianPersonalCode_old_LAR_ver_method.php
-//sis budas yra naujesnis, bet galima naudoti ir Rule
 
-use Closure;
-use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Contracts\Validation\Rule;
 
-class ValidLithuanianPersonalCode implements ValidationRule
+class ValidLithuanianPersonalCode implements Rule
 {
-    // Validacijos logika
-    public function validate(string $attribute, mixed $value, Closure $fail): void
+    private string $errorMessage = 'Neteisingas asmens kodas.';
+
+    public function passes($attribute, $value): bool
     {
         if (!is_numeric($value) || strlen($value) !== 11) {
-            $fail('Asmens kodas turi būti lygiai 11 skaitmenų.');
-            return;
+            $this->errorMessage = 'Asmens kodas turi būti lygiai 11 skaitmenų.';
+            return false;
         }
 
         if (!$this->validatePersonalCode($value)) {
-            $fail('Asmens kodas neatitinka kontrolinio skaičiaus.');
-            return;
+            $this->errorMessage = 'Asmens kodas neatitinka kontrolinio skaičiaus.';
+            return false;
         }
+
+        return true;
     }
 
-    // Tikrinimo metodas
+    public function message(): string
+    {
+        return $this->errorMessage;
+    }
+
     private function validatePersonalCode($code): bool
     {
         $weightsFirst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1];
