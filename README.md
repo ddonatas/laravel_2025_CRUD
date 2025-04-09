@@ -4,6 +4,7 @@
 <br>2025-03-26 Papildomai aktyvuotas Soft delete trynimas.
 <br>2025-03-26 Įdiegtas Breeze, kad studentų valdymą atlika tik prisijungę vartotojai, o list (index) gali matyti visi  be  prisijungimo
 <br>2025-03-27 Įdiegta validacija per FormRequest klasę.
+<br> 2025-04-09 Įdiegtas barryvdh/laravel-dompdf ir generuojamas ir atsiunčiama visu studentu PDF dokumentas  /generate-pdf
 
 <br> Įdiegus sudaromos ir užpildomos dvi lentelės students (su faker 1000 įrašų) ir cities  (su 5 LT miestais)
 
